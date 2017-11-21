@@ -1,0 +1,10 @@
+@startuml G1Model
+
+abstract class alias {
+    +{static} int PUBLIC_CLASS_VARIABLE
+    -string privateVariable
+    ~void packagePrivateMethod()
+    #{abstract} char protectedMethod(int param)
+}
+
+@enduml
