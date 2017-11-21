@@ -1,10 +1,43 @@
 @startuml G1Model
 
-abstract class alias {
-    +{static} int PUBLIC_CLASS_VARIABLE
-    -string privateVariable
-    ~void packagePrivateMethod()
-    #{abstract} char protectedMethod(int param)
+class Wrestler {
+    +string Name
+    +string Points
+
+    +int GetPoints()
+    +List<Match> Matches()
+
 }
+
+class Match {
+    + Collection<Wrestler> Wrestlers
+    + DateTime Date
+    + Wrestler Winner
+    + Wrestler Looser
+
+    + Match()
+}
+
+class Tournament {
+    +int BlockSize
+    +Wrestler[] BlockA
+    +Wrestler[] BlockB
+    
+    +Tournament(blocksize)
+}
+
+class Block {
+    +Match[] Matches
+
+    +Block(int blocksize)
+}
+
+
+Tournament "1" o-- "2" Block : contains
+Tournament "1" *-- "2" Match : contains
+
+Block "1" *-- "blocksize" Wrestler : contains
+
+Match "1" *-- "2" Wrestler :contains
 
 @enduml
