@@ -9,14 +9,20 @@ namespace G1Model
 {
     public class Match
     {
-        public Collection<Wrestler> Wrestlers { get; set; }
+        public Wrestler[] Wrestlers { get; set; }
         public DateTime Date { get; set; }
         public Wrestler Winner { get; set; }
         public Wrestler Looser { get; set; }
 
         public Match()
         {
-            Wrestlers = new Collection<Wrestler>();
+            Wrestlers = new Wrestler[2];
+            Wrestlers[0] = new Wrestler("Raoul");
+            Wrestlers[1] = new Wrestler("Raoul");
+        }
+        public Match(Wrestler wrestler1, Wrestler wrestler2)
+        {
+            Wrestlers = new Wrestler[] { wrestler1, wrestler2 };
         }
     }
 }
