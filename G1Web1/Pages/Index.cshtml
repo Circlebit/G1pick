@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Test Tabelle</h2>
+        <h3>Block A</h3>
+        <ul>
+            @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
+            {
+                <li>@wrestler.Name</li>
+            }
+        </ul>
+
+        <table>
+            <tr>
+                <td></td>
+                @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
+                {
+                    <th scope="col">@wrestler.Name</th>
+                }
+            </tr>
+            @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
+            {
+                <tr>
+                    <th scope="row">@wrestler.Name</th>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
+
