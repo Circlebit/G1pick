@@ -17,8 +17,8 @@ namespace G1Model
         public Match()
         {
             Wrestlers = new Wrestler[2];
-            Wrestlers[0] = new Wrestler("Raoul");
-            Wrestlers[1] = new Wrestler("Raoul");
+            Wrestlers[0] = new Wrestler("NoName");
+            Wrestlers[1] = new Wrestler("NoName");
         }
         public Match(Wrestler wrestler1, Wrestler wrestler2)
         {

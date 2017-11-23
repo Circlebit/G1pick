@@ -11,7 +11,24 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            var t = new Tournament(4);
+            var t = new Tournament();
+
+            for (int x = 0; x < t.BlockSize; x++)
+            {
+                for (int y = 0; y < t.BlockSize; y++)
+                {
+                    Console.WriteLine(x.ToString() + "," + y.ToString());
+                    try
+                    {
+                        Console.Write(t.BlockA.Matches[x, y].Wrestlers[0].Name.ToString()+"vs"+ t.BlockA.Matches[x, y].Wrestlers[1].Name.ToString());
+                    }
+                    catch
+                    {
+                        Console.Write(" [NULL] ");
+                    }
+                }
+                Console.Write("\n");
+            }
 
             Console.ReadLine();
         }

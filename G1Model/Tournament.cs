@@ -23,6 +23,8 @@ namespace G1Model
             BlockA.Wrestlers[3] = new Wrestler("DDD");
             BlockA.Wrestlers[4] = new Wrestler("EEE");
 
+            BlockA.GenerateMatches();
+
             BlockB.Wrestlers[0] = new Wrestler("111");
             BlockB.Wrestlers[1] = new Wrestler("222");
             BlockB.Wrestlers[2] = new Wrestler("333");
@@ -37,24 +39,52 @@ namespace G1Model
 
     public class Block
     {
+        public int Blocksize { get; }
         public Wrestler[] Wrestlers { get; set; }
         public Match[,] Matches { get; set; }
-        
+                
 
         public Block(int blocksize)
         {
+            Blocksize = blocksize;
             Wrestlers = new Wrestler[blocksize];
             Matches = new Match[blocksize,blocksize];
 
-            foreach (var wrestler in Wrestlers)
+            for (int x = 0; x < Blocksize; x++)
             {
-                Debug.WriteLine(wrestler.Name);
+                for (int y = 0; y < Blocksize; y++)
+                {
+                    Matches[x, y] = new Match();
+                }
             }
         }
 
         public void GenerateMatches()
         {
+            for (int x = 0; x < Blocksize; x++)
+            {
+                for (int y = 0; y < Blocksize; y++)
+                {
+                    if (x == y)
+                    {
+                        //Console.WriteLine(x.ToString() + "," + y.ToString());
+                        Matches[x, y] = null;
+                    }
+                    else if( x > y )
+                    {
+                        
+                        // Matches[x, y] = new Match(Wrestlers[x], Wrestlers[y]);
+                        Matches[x, y].Wrestlers[0] = Wrestlers[x];
+                        Matches[x, y].Wrestlers[1] = Wrestlers[y];
 
+                    }
+                    else
+                    {
+                        Console.WriteLine(x.ToString() + "," + y.ToString());
+                        Matches[x, y] = Matches[y, x];
+                    }
+                }
+            }
         }
 
     }
