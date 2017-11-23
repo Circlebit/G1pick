@@ -8,14 +8,31 @@
     <div class="col-md-3">
         <h2>Test Tabelle</h2>
         <h3>Block A</h3>
-        <ul>
+        @*<ul>
             @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
             {
                 <li>@wrestler.Name</li>
             }
-        </ul>
+        </ul>*@
+        
+            @*@for (var x = 0; x < Model.G1.BlockA.Matches.GetLength(0); x++)
+            {
+                @for (var y = 0; y < Model.G1.BlockA.Matches.GetLength(0); y++)
+                {
+                    try
+                    {
+                        <td>@Model.G1.BlockA.Matches[x, y].Wrestlers[0].Name vs @Model.G1.BlockA.Matches[x, y].Wrestlers[1].Name</td>
+                    }
+                    catch
+                    {
+                        <td>---</td>
+                    }
+                 }
 
-        <table>
+            }*@
+        
+
+        <table class="table table-bordered">
             <tr>
                 <td></td>
                 @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
@@ -23,19 +40,29 @@
                     <th scope="col">@wrestler.Name</th>
                 }
             </tr>
-            @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
+            
+            @for (var x = 0; x < Model.G1.BlockA.Matches.GetLength(0); x++)
             {
-                <tr>
-                    <th scope="row">@wrestler.Name</th>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                </tr>
+                    <tr>
+                        <th scope="row">@Model.G1.BlockA.Wrestlers[x].Name</th>
+                        @for (var y = 0; y < Model.G1.BlockA.Matches.GetLength(0); y++)
+                        {
+                            if (Model.G1.BlockA.Matches[x, y] != null)
+                            {
+                                <td>@Model.G1.BlockA.Matches[x, y].Wrestlers[0].Name vs @Model.G1.BlockA.Matches[x, y].Wrestlers[1].Name</td>
+                            }
+                            else
+                            {
+                                <td> X </td>
+                            }
+                        }
+    
+                    </tr>
+
             }
 
         </table>
+
 
     </div>
 </div>

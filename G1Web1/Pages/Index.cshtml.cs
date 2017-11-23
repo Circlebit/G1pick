@@ -14,7 +14,7 @@ namespace G1Web1.Pages
 
         public void OnGet()
         {
-            G1 = new Tournament(5);
+            G1 = new Tournament();
         }
     }
 }
