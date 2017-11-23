@@ -4,35 +4,17 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="row">
-    <div class="col-md-3">
+<div class="container">
+
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+
         <h2>Test Tabelle</h2>
         <h3>Block A</h3>
-        @*<ul>
-            @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
-            {
-                <li>@wrestler.Name</li>
-            }
-        </ul>*@
-        
-            @*@for (var x = 0; x < Model.G1.BlockA.Matches.GetLength(0); x++)
-            {
-                @for (var y = 0; y < Model.G1.BlockA.Matches.GetLength(0); y++)
-                {
-                    try
-                    {
-                        <td>@Model.G1.BlockA.Matches[x, y].Wrestlers[0].Name vs @Model.G1.BlockA.Matches[x, y].Wrestlers[1].Name</td>
-                    }
-                    catch
-                    {
-                        <td>---</td>
-                    }
-                 }
 
-            }*@
-        
-
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover">
             <tr>
                 <td></td>
                 @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
@@ -40,30 +22,28 @@
                     <th scope="col">@wrestler.Name</th>
                 }
             </tr>
-            
+
             @for (var x = 0; x < Model.G1.BlockA.Matches.GetLength(0); x++)
             {
-                    <tr>
-                        <th scope="row">@Model.G1.BlockA.Wrestlers[x].Name</th>
-                        @for (var y = 0; y < Model.G1.BlockA.Matches.GetLength(0); y++)
+                <tr>
+                    <th scope="row">@Model.G1.BlockA.Wrestlers[x].Name</th>
+                    @for (var y = 0; y < Model.G1.BlockA.Matches.GetLength(0); y++)
+                    {
+                        if (Model.G1.BlockA.Matches[x, y] != null)
                         {
-                            if (Model.G1.BlockA.Matches[x, y] != null)
-                            {
-                                <td>@Model.G1.BlockA.Matches[x, y].Wrestlers[0].Name vs @Model.G1.BlockA.Matches[x, y].Wrestlers[1].Name</td>
-                            }
-                            else
-                            {
-                                <td> X </td>
-                            }
+                            <td>@Model.G1.BlockA.Matches[x, y].Wrestlers[0].Name <br /> vs <br /> @Model.G1.BlockA.Matches[x, y].Wrestlers[1].Name</td>
                         }
-    
-                    </tr>
-
+                        else
+                        {
+                            <td> — </td>
+                        }
+                    }
+                </tr>
             }
-
         </table>
 
+        <div class="col-md-2">
+        </div>
 
     </div>
 </div>
-
