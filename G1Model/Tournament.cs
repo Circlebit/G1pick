@@ -31,7 +31,7 @@ namespace G1Model
             BlockB.Wrestlers[3] = new Wrestler("444");
             BlockB.Wrestlers[4] = new Wrestler("555");
 
-
+            BlockB.GenerateMatches();
         }
 
     }
@@ -59,28 +59,26 @@ namespace G1Model
             }
         }
 
+        /// <summary>
+        /// populates the Match objects in the 2d-array Matches with the wrestlers from the array Wrestlers.
+        /// </summary>
         public void GenerateMatches()
         {
             for (int x = 0; x < Blocksize; x++)
             {
                 for (int y = 0; y < Blocksize; y++)
                 {
-                    if (x == y)
+                    if (x == y) // diagonale
                     {
-                        //Console.WriteLine(x.ToString() + "," + y.ToString());
                         Matches[x, y] = null;
                     }
-                    else if( x > y )
+                    else if( x > y ) // upper part of the table
                     {
-                        
-                        // Matches[x, y] = new Match(Wrestlers[x], Wrestlers[y]);
                         Matches[x, y].Wrestlers[0] = Wrestlers[x];
                         Matches[x, y].Wrestlers[1] = Wrestlers[y];
-
                     }
-                    else
+                    else // lower part of the table
                     {
-                        Console.WriteLine(x.ToString() + "," + y.ToString());
                         Matches[x, y] = Matches[y, x];
                     }
                 }
@@ -88,5 +86,4 @@ namespace G1Model
         }
 
     }
-
 }

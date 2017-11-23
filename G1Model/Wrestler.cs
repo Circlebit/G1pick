@@ -8,12 +8,14 @@ namespace G1Model
     {
         public string Name { get; set; }
 
-        public string Points { get; set; }
+        public int Points { get; set; }
 
 
         public Wrestler(string name)
         {
             Name = name;
+            Points = 0;
+
         }
 
     }

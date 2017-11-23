@@ -13,13 +13,14 @@ namespace G1Model
         public DateTime Date { get; set; }
         public Wrestler Winner { get; set; }
         public Wrestler Looser { get; set; }
+        public TimeSpan Length { get; set; }
 
         public Match()
         {
             Wrestlers = new Wrestler[2];
-            Wrestlers[0] = new Wrestler("NoName");
-            Wrestlers[1] = new Wrestler("NoName");
+            Length = new TimeSpan();
         }
+
         public Match(Wrestler wrestler1, Wrestler wrestler2)
         {
             Wrestlers = new Wrestler[] { wrestler1, wrestler2 };
