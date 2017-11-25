@@ -11,8 +11,9 @@ namespace G1Model
     {
         public Wrestler[] Wrestlers { get; set; }
         public DateTime Date { get; set; }
-        public Wrestler Winner { get; set; }
-        public Wrestler Looser { get; set; }
+        //public Wrestler Winner { get; set; }
+        //public Wrestler Looser { get; set; }
+        // wie das ergebnis gut implementieren. Gut verständlich und sinnvoll weiterverarbeitbar
         public TimeSpan Length { get; set; }
 
         public Match()

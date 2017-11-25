@@ -4,6 +4,9 @@ using System.Diagnostics;
 
 namespace G1Model
 {
+    public enum Result { Win = 2, Draw = 1, Loss = 0 }
+
+
     public class Tournament
     {
         public int BlockSize { get; }
