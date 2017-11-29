@@ -21,14 +21,16 @@ namespace G1Model
             Points = 0;
         }
 
-        public void EnterMatchResult(Match, Result result)
+        public void EnterMatchResult(Match match, Result result)
         {
-            
+            // does this belong here? - implement score system first!
         }
 
         public void CalcPoints()
         {
-             
+             // go through each match in Matches
+             // get points
+             // return sum
         }
 
     }

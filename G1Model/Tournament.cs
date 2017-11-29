@@ -20,21 +20,6 @@ namespace G1Model
             BlockA = new Block(blocksize);
             BlockB = new Block(blocksize);
 
-            BlockA.Wrestlers[0] = new Wrestler("AAA");
-            BlockA.Wrestlers[1] = new Wrestler("BBB");
-            BlockA.Wrestlers[2] = new Wrestler("CCC");
-            BlockA.Wrestlers[3] = new Wrestler("DDD");
-            BlockA.Wrestlers[4] = new Wrestler("EEE");
-
-            BlockA.GenerateMatches();
-
-            BlockB.Wrestlers[0] = new Wrestler("111");
-            BlockB.Wrestlers[1] = new Wrestler("222");
-            BlockB.Wrestlers[2] = new Wrestler("333");
-            BlockB.Wrestlers[3] = new Wrestler("444");
-            BlockB.Wrestlers[4] = new Wrestler("555");
-
-            BlockB.GenerateMatches();
         }
 
     }

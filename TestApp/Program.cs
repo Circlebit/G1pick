@@ -12,6 +12,24 @@ namespace TestApp
         static void Main(string[] args)
         {
             var t = new Tournament();
+
+            t.BlockA.Wrestlers[0] = new Wrestler("AAA");
+            t.BlockA.Wrestlers[1] = new Wrestler("BBB");
+            t.BlockA.Wrestlers[2] = new Wrestler("CCC");
+            t.BlockA.Wrestlers[3] = new Wrestler("DDD");
+            t.BlockA.Wrestlers[4] = new Wrestler("EEE");
+
+            t.BlockA.GenerateMatches();
+
+            t.BlockB.Wrestlers[0] = new Wrestler("111");
+            t.BlockB.Wrestlers[1] = new Wrestler("222");
+            t.BlockB.Wrestlers[2] = new Wrestler("333");
+            t.BlockB.Wrestlers[3] = new Wrestler("444");
+            t.BlockB.Wrestlers[4] = new Wrestler("555");
+
+            t.BlockB.GenerateMatches();
+
+
             PrintMatchTable(t);
 
             t.BlockA.Matches[0, 1].Wrestlers[0].Name = "XXX";
