@@ -19,7 +19,7 @@
                 <td></td>
                 @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
                 {
-                    <th scope="col">@wrestler.Name</th>
+                        <th scope="col">@wrestler.Name</th>
                 }
             </tr>
 
@@ -27,11 +27,12 @@
             {
                 <tr>
                     <th scope="row">@Model.G1.BlockA.Wrestlers[x].Name</th>
+
                     @for (var y = 0; y < Model.G1.BlockA.Matches.GetLength(0); y++)
                     {
                         if (Model.G1.BlockA.Matches[x, y] != null)
                         {
-                            <td>@Model.G1.BlockA.Matches[x, y].Wrestlers[0].Name <br /> vs <br /> @Model.G1.BlockA.Matches[x, y].Wrestlers[1].Name</td>
+                            <td>@Model.G1.BlockA.Matches[x, y].MatchContenders[0].Name <br /> vs <br /> @Model.G1.BlockA.Matches[x, y].MatchContenders[1].Name</td>
                         }
                         else
                         {
