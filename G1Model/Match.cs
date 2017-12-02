@@ -9,14 +9,7 @@ namespace G1Model
 {
     public class Match
     {
-        public Wrestler[] Wrestlers { get; set; }
-        public int[] Results { get; set; } // - Results in the same order as in Wrestlers would work, but is not defensive
-                                           // other options:
-                                           // - MatchResult Object that holds a link to the wrestler with the result
-                                           // - or somehow add a property to the wrestler that corresponds to the Match-Object? Bad idea maybe?
-                                           // - or save Winner / Looser and have a convetion that both being winner means draw (see comment below)
-        //public Wrestler Winner { get; set; }
-        //public Wrestler Looser { get; set; }
+        public MatchContender[] MatchContenders { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -24,13 +17,31 @@ namespace G1Model
 
         public Match()
         {
-            Wrestlers = new Wrestler[2];
+            MatchContenders = new MatchContender[2];
             Length = new TimeSpan();
         }
 
         public Match(Wrestler wrestler1, Wrestler wrestler2)
         {
-            Wrestlers = new Wrestler[] { wrestler1, wrestler2 };
+            MatchContenders = new MatchContender[] { new MatchContender(wrestler1), new MatchContender(wrestler2) };
+        }
+    }
+
+    public class MatchContender
+    {
+        public Wrestler Wrestler { get; set; }
+        public Result? Result { get; set; }
+
+        public string Name
+        {
+            get { return Wrestler.Name; }
+            set { Wrestler.Name = value; }
+        }
+
+        public MatchContender(Wrestler wrestler)
+        {
+            Wrestler = wrestler;
+            Result = null;
         }
     }
 }

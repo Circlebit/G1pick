@@ -32,7 +32,7 @@ namespace TestApp
 
             PrintMatchTable(t);
 
-            t.BlockA.Matches[0, 1].Wrestlers[0].Name = "XXX";
+            t.BlockA.Matches[0, 1].MatchContenders[0].Name = "XXX";
             PrintMatchTable(t);
 
             var w = new Wrestler("ZZZ");
@@ -54,7 +54,7 @@ namespace TestApp
                 {
                     try
                     {
-                        Console.Write(" " + t.BlockA.Matches[x, y].Wrestlers[0].Name.ToString() + "vs" + t.BlockA.Matches[x, y].Wrestlers[1].Name.ToString() + " ");
+                        Console.Write(" " + t.BlockA.Matches[x, y].MatchContenders[0].Name.ToString() + "vs" + t.BlockA.Matches[x, y].MatchContenders[1].Name.ToString() + " ");
                     }
                     catch
                     {
