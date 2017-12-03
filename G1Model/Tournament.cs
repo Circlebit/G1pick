@@ -13,13 +13,11 @@ namespace G1Model
         public Block BlockA { get; set; }
         public Block BlockB { get; set; }
 
-
-        public Tournament(int blocksize = 5)
+        public Tournament(int blocksize = 10)
         {
             BlockSize = blocksize;
             BlockA = new Block(blocksize);
             BlockB = new Block(blocksize);
-
         }
 
     }
@@ -31,7 +29,6 @@ namespace G1Model
         public Wrestler[] Wrestlers { get; set; }
         public Match[,] Matches { get; set; }
                 
-
         public Block(int blocksize)
         {
             Blocksize = blocksize;

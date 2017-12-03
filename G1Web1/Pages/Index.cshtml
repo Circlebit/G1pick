@@ -6,21 +6,20 @@
 
 <div class="container">
 
-    <div class="col-md-2">
-    </div>
 
-    <div class="col-md-8">
 
-        <h2>Test Tabelle</h2>
-        <h3>Block A</h3>
+    <font class="col-md-8">
+        <h3>Tables</h3>
 
         <table class="table table-bordered table-hover">
             <tr>
-                <td></td>
+                <td> <font size="6">A</font> </td>
                 @foreach (var wrestler in Model.G1.BlockA.Wrestlers)
                 {
                         <th scope="col">@wrestler.Name</th>
                 }
+                <th scope="col">Total</th>
+
             </tr>
 
             @for (var x = 0; x < Model.G1.BlockA.Matches.GetLength(0); x++)
@@ -39,12 +38,14 @@
                             <td> — </td>
                         }
                     }
+                    <td>@Model.G1.BlockA.Wrestlers[x].Points</td>
                 </tr>
+                
+
             }
         </table>
 
-        <div class="col-md-2">
-        </div>
+
 
     </div>
 </div>
