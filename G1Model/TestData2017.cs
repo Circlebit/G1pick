@@ -24,6 +24,9 @@ namespace G1Model
                 new Wrestler("Yoshi-Hashi")};
             g1_2017.BlockA.GenerateMatches();
 
+            //g1_2017.BlockA.Matches[0, 1].MatchContenders[0].Result = Result.Win;
+
+
             g1_2017.BlockB.Wrestlers = new Wrestler[] {
                 new Wrestler("Elgin"),
                 new Wrestler("Evil"),

@@ -70,5 +70,30 @@ namespace G1Model
             }
         }
 
+        public Match GetMatch(Wrestler wrestler1, Wrestler wrestler2)
+        {
+            int x = 0;
+            while (x < Blocksize)
+            {
+                if (Wrestlers[x] == wrestler1)
+                {
+                    break;
+                }
+                x++;
+            }
+
+            int y = 0;
+            while (y < Blocksize)
+            {
+                if (Wrestlers[y] == wrestler2)
+                {
+                    break;
+                }
+                y++;
+            }
+
+            return Matches[x,y];
+        }
+
     }
 }
