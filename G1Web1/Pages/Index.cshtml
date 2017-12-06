@@ -6,8 +6,6 @@
 
 <div class="container">
 
-
-
     <font class="col-md-8">
         <h3>Tables</h3>
 
@@ -19,7 +17,6 @@
                         <th scope="col">@wrestler.Name</th>
                 }
                 <th scope="col">Total</th>
-
             </tr>
 
             @for (var x = 0; x < Model.G1.BlockA.Matches.GetLength(0); x++)
@@ -31,23 +28,17 @@
                     {
                         if (Model.G1.BlockA.Matches[x, y] != null)
                         {
-                            <td>
-                                @Model.GetTableResultFromMatch(Model.G1.BlockA.Matches[x, y])
-                            </td>
+                            <td>@Model.GetTableResultFromMatch(Model.G1.BlockA.Matches[x, y])</td>
                         }
                         else
                         {
                             <td> — </td>
                         }
                     }
-                    <td>@Model.G1.BlockA.Wrestlers[x].Points</td>
+                    <td>@Model.G1.BlockA.GetWrestlerPoints(Model.G1.BlockA.Wrestlers[x])</td>
                 </tr>
-                
-
             }
         </table>
 
-
-
     </div>
-</div>
+

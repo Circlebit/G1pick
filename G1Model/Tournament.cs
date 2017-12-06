@@ -101,5 +101,28 @@ namespace G1Model
             return Matches[x,y];
         }
 
+        public int GetWrestlerPoints(Wrestler wrestler)
+        {
+            int points = 0;
+            int x = 0;
+            while (x < Blocksize)
+            {
+                if (Wrestlers[x] == wrestler)
+                {
+                    break;
+                }
+                x++;
+            }
+
+            for (int y = 0; y < Blocksize; y++)
+            {
+                if (Matches[x, y] != null)
+                {
+                    points += (int)Matches[x, y].MatchContenders[1].Result;
+                }
+            }
+            return points;
+        }
+
     }
 }
