@@ -31,7 +31,9 @@
                     {
                         if (Model.G1.BlockA.Matches[x, y] != null)
                         {
-                            <td>@Model.G1.BlockA.Matches[x, y].MatchContenders[0].Name <br /> vs <br /> @Model.G1.BlockA.Matches[x, y].MatchContenders[1].Name</td>
+                            <td>
+                                @Model.GetTableResultFromMatch(Model.G1.BlockA.Matches[x, y])
+                            </td>
                         }
                         else
                         {

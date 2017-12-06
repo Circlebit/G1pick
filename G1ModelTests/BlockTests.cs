@@ -17,10 +17,10 @@ namespace G1Model.Tests
         {
             Tournament g1 = TestData2017.Generate();
 
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < g1.BlockSize; x++)
             {
                 Wrestler w1 = g1.BlockA.Wrestlers[x];
-                for (int y = 0; y < 10; y++)
+                for (int y = 0; y < g1.BlockSize; y++)
                 {
                     Wrestler w2 = g1.BlockA.Wrestlers[y];
                     Match m = g1.BlockA.GetMatch(w1, w2);

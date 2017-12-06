@@ -16,5 +16,17 @@ namespace G1Web1.Pages
         {
             G1 = TestData2017.Generate();
         }
+
+        public string GetTableResultFromMatch(Match match)
+        {
+            if ( match.GetWinner() != null)
+            {
+                return match.GetWinner().Name;
+            }
+            else
+            {
+                return "Draw";
+            }
+        }
     }
 }

@@ -25,6 +25,38 @@ namespace G1Model
         {
             MatchContenders = new MatchContender[] { new MatchContender(wrestler1), new MatchContender(wrestler2) };
         }
+
+        public MatchContender GetWinner()
+        {
+            if (MatchContenders[0].Result == Result.Win)
+            {
+                return MatchContenders[0];
+            }
+            else if (MatchContenders[1].Result == Result.Win)
+            {
+                return MatchContenders[1];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public MatchContender GetLoser()
+        {
+            if (MatchContenders[0].Result == Result.Loss)
+            {
+                return MatchContenders[0];
+            }
+            else if (MatchContenders[1].Result == Result.Loss)
+            {
+                return MatchContenders[1];
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 
     public class MatchContender

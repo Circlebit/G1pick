@@ -70,6 +70,12 @@ namespace G1Model
             }
         }
 
+        /// <summary>
+        /// Returns the Match object from Matches[] of the match of two given wrestlers of a Block
+        /// </summary>
+        /// <param name="wrestler1"></param>
+        /// <param name="wrestler2"></param>
+        /// <returns></returns>
         public Match GetMatch(Wrestler wrestler1, Wrestler wrestler2)
         {
             int x = 0;
