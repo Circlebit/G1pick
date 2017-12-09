@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Ranking";
+}
+
+<h2>Ranking by Points</h2>
+
+<div class="container">
+
+        <div class="row">
+            <div class="col-8 col-sm-6">
+                
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th colspan="2">A</th>
+                    </tr>
+
+                    @foreach (var wrestler in Model.G1.BlockA.Wrestlers.OrderBy(x => x.Points).Reverse())
+                    {
+                        <tr>
+                            <td>@wrestler.Name</td>
+                            <td>@wrestler.Points</td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+            <div class="col-4 col-sm-6">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th colspan="2">B</th>
+                    </tr>
+
+                    @foreach (var wrestler in Model.G1.BlockB.Wrestlers.OrderBy(x => x.Points).Reverse())
+                    {
+                        <tr>
+                            <td>@wrestler.Name</td>
+                            <td>@wrestler.Points</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

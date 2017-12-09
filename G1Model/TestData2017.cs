@@ -96,9 +96,9 @@ namespace G1Model
             g1_2017.BlockA.Matches[5, 9].MatchContenders[1].Result = Result.Loss;
 
             // Row 6 - Naito
-            g1_2017.BlockA.Matches[6, 7].MatchContenders[1].Result = Result.Loss;
-            g1_2017.BlockA.Matches[6, 8].MatchContenders[1].Result = Result.Loss;
-            g1_2017.BlockA.Matches[6, 9].MatchContenders[1].Result = Result.Loss;
+            g1_2017.BlockA.Matches[6, 7].MatchContenders[1].Result = Result.Win;
+            g1_2017.BlockA.Matches[6, 8].MatchContenders[1].Result = Result.Win;
+            g1_2017.BlockA.Matches[6, 9].MatchContenders[1].Result = Result.Win;
 
             // Row 7 - Sabre
             g1_2017.BlockA.Matches[7, 8].MatchContenders[1].Result = Result.Win;
