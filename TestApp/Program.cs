@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using G1Model;
+using System.Collections.ObjectModel;
 
 namespace TestApp
 {
@@ -11,35 +12,18 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            var t = new Tournament();
+            Tournament g1 = TestData2017.Generate();
 
-            t.BlockA.Wrestlers[0] = new Wrestler("AAA");
-            t.BlockA.Wrestlers[1] = new Wrestler("BBB");
-            t.BlockA.Wrestlers[2] = new Wrestler("CCC");
-            t.BlockA.Wrestlers[3] = new Wrestler("DDD");
-            t.BlockA.Wrestlers[4] = new Wrestler("EEE");
-
-            t.BlockA.GenerateMatches();
-
-            t.BlockB.Wrestlers[0] = new Wrestler("111");
-            t.BlockB.Wrestlers[1] = new Wrestler("222");
-            t.BlockB.Wrestlers[2] = new Wrestler("333");
-            t.BlockB.Wrestlers[3] = new Wrestler("444");
-            t.BlockB.Wrestlers[4] = new Wrestler("555");
-
-            t.BlockB.GenerateMatches();
-
-
-            PrintMatchTable(t);
-
-            t.BlockA.Matches[0, 1].MatchContenders[0].Name = "XXX";
-            PrintMatchTable(t);
-
-            var w = new Wrestler("ZZZ");
-            t.BlockA.Wrestlers[1] = w;
-            t.BlockA.GenerateMatches();
-            PrintMatchTable(t);
-
+            Console.WriteLine($"{g1.BlockA.Wrestlers[0].Name}: {g1.BlockA.Wrestlers[0].Points}" );
+            Console.WriteLine($"{g1.BlockA.Wrestlers[1].Name}: {g1.BlockA.Wrestlers[1].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[2].Name}: {g1.BlockA.Wrestlers[2].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[3].Name}: {g1.BlockA.Wrestlers[3].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[4].Name}: {g1.BlockA.Wrestlers[4].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[5].Name}: {g1.BlockA.Wrestlers[5].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[6].Name}: {g1.BlockA.Wrestlers[6].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[7].Name}: {g1.BlockA.Wrestlers[7].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[8].Name}: {g1.BlockA.Wrestlers[8].Points}");
+            Console.WriteLine($"{g1.BlockA.Wrestlers[9].Name}: {g1.BlockA.Wrestlers[9].Points}");
 
             Console.ReadLine();
         }
@@ -54,11 +38,11 @@ namespace TestApp
                 {
                     try
                     {
-                        Console.Write(" " + t.BlockA.Matches[x, y].MatchContenders[0].Name.ToString() + "vs" + t.BlockA.Matches[x, y].MatchContenders[1].Name.ToString() + " ");
+                        Console.Write(" " + t.BlockA.Matches[x, y].MatchContenders[0].Name.ToString() + "VS" + t.BlockA.Matches[x, y].MatchContenders[1].Name.ToString() + " \t");
                     }
                     catch
                     {
-                        Console.Write("  ------  ");
+                        Console.Write("  ------  \t");
                     }
                 }
                 Console.Write("\n");

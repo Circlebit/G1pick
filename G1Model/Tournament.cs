@@ -59,8 +59,7 @@ namespace G1Model
                     }
                     else if( x > y ) // upper part of the table
                     {
-                        Matches[x, y].MatchContenders[0] = new MatchContender(Wrestlers[x]);
-                        Matches[x, y].MatchContenders[1] = new MatchContender(Wrestlers[y]);
+                        Matches[x, y].MatchContenders = new MatchContender[] { new MatchContender(Wrestlers[x]), new MatchContender(Wrestlers[y])};
                     }
                     else // lower part of the table
                     {
