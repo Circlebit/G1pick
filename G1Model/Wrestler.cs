@@ -12,10 +12,10 @@ namespace G1Model
     {
         public string Name { get; set; }
 
-        public int Points
-        {
-            get { return CalcPoints(); }
-        }
+        public int Points { get; private set; }
+        //{
+        //    get { return CalcPoints(); } // when the input of match results is implemented
+        //}                                // this should be changed so that the Points are only calculated when results are changed
 
         public Collection<Match> Matches { get; set; }
         public Guid InstanceID { get; private set; }
@@ -32,14 +32,18 @@ namespace G1Model
         //    // does this belong here? - implement score system first!
         //}
 
-        private int CalcPoints()
+        public void CalcPoints()
         {
-            int points = 0;
-            foreach (Match match in Matches)
+            if (Matches != null)
             {
-                points += (int)match.MatchContenders.Single(mc => mc.Wrestler == this).Result;
+                int points = 0;
+                foreach (Match match in Matches)
+                {
+                    points += (int)(match.MatchContenders.Single(mc => mc.Wrestler == this).Result ?? 0);
+                }
+                Points = points;
             }
-            return points;
+            //return points;
         }
     }
 }

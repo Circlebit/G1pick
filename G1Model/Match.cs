@@ -20,18 +20,13 @@ namespace G1Model
 
                 foreach (MatchContender mc in value)
                 {
-                    try
+                    if (mc != null)
                     {
                         if (!mc.Wrestler.Matches.Contains<Match>(this))
                         {
                             mc.Wrestler.Matches.Add(this);
                             Debug.WriteLine($"{mc.Name}'s Matchlist adds:\t {this.MatchContenders[0].Name} VS. {this.MatchContenders[1].Name}");
                         }
-                        
-                    }
-                    catch (NullReferenceException)
-                    {
-                        // expected, ignore
                     }
                 }
             }
@@ -92,18 +87,18 @@ namespace G1Model
     {
         public Wrestler Wrestler { get; set; }
 
-        public Result? Result { get; set; }
+        //public Result? Result { get; set; }
 
-        //private Result? _result;
-        //public Result? Result
-        //{
-        //    get { return _result; }
-        //    set
-        //    {
-        //        _result = value;
-
-        //    }
-        //}
+        private Result? _result;
+        public Result? Result
+        {
+            get { return _result; }
+            set
+            {
+                _result = value;
+                Wrestler.CalcPoints();
+            }
+        }
 
         public string Name
         {
