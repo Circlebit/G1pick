@@ -16,17 +16,24 @@ namespace G1Model
         public Prediction(Tournament tournament)
         {
             Tournament Tournament = tournament;
-            SetupMatchPredictions( MatchPredictionsBlockA, Tournament.BlockA );
-            SetupMatchPredictions( MatchPredictionsBlockB, Tournament.BlockB );
+            MatchPredictionsBlockA = new MatchPrediction[Tournament.BlockSize, Tournament.BlockSize];
+            MatchPredictionsBlockB = new MatchPrediction[Tournament.BlockSize, Tournament.BlockSize];
+            SetupBlockMatchesForPredictions( MatchPredictionsBlockA, Tournament.BlockA );
+            SetupBlockMatchesForPredictions( MatchPredictionsBlockB, Tournament.BlockB );
         }
 
-        private void SetupMatchPredictions(MatchPrediction[,] blockPredicitons, Block tournamentBlock)
+        /// <summary>
+        ///     copy matches from Tournament Block into Prediction Block
+        /// </summary>
+        /// <param name="blockPredicitons"></param>
+        /// <param name="tournamentBlock"></param>
+        private void SetupBlockMatchesForPredictions(MatchPrediction[,] blockPredicitons, Block tournamentBlock)
         {
-            for (int x = 0; x < blockPredicitons.Length; x++)
+            for (int x = 0; x < tournamentBlock.Blocksize; x++)
             {
-                for (int y = 0; y < blockPredicitons.Length; y++)
+                for (int y = 0; y < tournamentBlock.Blocksize; y++)
                 {
-                    blockPredicitons[x, y].Match = tournamentBlock.Matches[x, y];
+                    blockPredicitons[x, y] = new MatchPrediction(tournamentBlock.Matches[x, y]);
                 }
             }
         }
