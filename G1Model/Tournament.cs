@@ -45,7 +45,7 @@ namespace G1Model
         }
 
         /// <summary>
-        /// populates the Match objects in the 2d-array Matches with the wrestlers from the array Wrestlers.
+        ///     populates the Match objects in the 2d-array Matches with the wrestlers from the array Wrestlers.
         /// </summary>
         public void GenerateMatches()
         {
@@ -70,11 +70,10 @@ namespace G1Model
         }
 
         /// <summary>
-        /// Returns the Match object from Matches[] of the match of two given wrestlers of a Block
+        ///     Returns the Match object from Matches[] of the match of two given wrestlers of a Block
         /// </summary>
         /// <param name="wrestler1"></param>
         /// <param name="wrestler2"></param>
-        /// <returns></returns>
         public Match GetMatch(Wrestler wrestler1, Wrestler wrestler2)
         {
             int x = 0;

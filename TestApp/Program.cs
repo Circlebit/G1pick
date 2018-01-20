@@ -14,7 +14,7 @@ namespace TestApp
         {
             Tournament g1 = TestData2017.Generate();
 
-            Console.WriteLine($"{g1.BlockA.Wrestlers[0].Name}: {g1.BlockA.Wrestlers[0].Points}" );
+            Console.WriteLine($"{g1.BlockA.Wrestlers[0].Name}: {g1.BlockA.Wrestlers[0].Points}");
             Console.WriteLine($"{g1.BlockA.Wrestlers[1].Name}: {g1.BlockA.Wrestlers[1].Points}");
             Console.WriteLine($"{g1.BlockA.Wrestlers[2].Name}: {g1.BlockA.Wrestlers[2].Points}");
             Console.WriteLine($"{g1.BlockA.Wrestlers[3].Name}: {g1.BlockA.Wrestlers[3].Points}");
@@ -24,6 +24,8 @@ namespace TestApp
             Console.WriteLine($"{g1.BlockA.Wrestlers[7].Name}: {g1.BlockA.Wrestlers[7].Points}");
             Console.WriteLine($"{g1.BlockA.Wrestlers[8].Name}: {g1.BlockA.Wrestlers[8].Points}");
             Console.WriteLine($"{g1.BlockA.Wrestlers[9].Name}: {g1.BlockA.Wrestlers[9].Points}");
+
+            var p = new Prediction(g1);
 
             Console.ReadLine();
         }
